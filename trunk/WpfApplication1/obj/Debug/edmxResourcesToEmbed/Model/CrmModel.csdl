@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="crmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="company">
+    <Key>
+      <PropertyRef Name="company_id" />
+    </Key>
+    <Property Name="company_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="in_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="senddata" Type="DateTime" />
+    <Property Name="receivedata" Type="DateTime" />
+    <Property Name="receiveuser" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="in_orderreceivelog">
+    <Key>
+      <PropertyRef Name="orderreceivelog_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="startdatetime" Type="DateTime" />
+    <Property Name="finishdatetime" Type="DateTime" />
+    <Property Name="videopath" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="userbarcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="messages" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="orderreceivelog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="in_orderreceivewarelog">
+    <Key>
+      <PropertyRef Name="orderreceivewarelog_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="barcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="setdatetime" Type="DateTime" />
+    <Property Name="messages" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="orderreceivewarelog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="in_orderstatus">
+    <Key>
+      <PropertyRef Name="orderstatus_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="setdate" Type="DateTime" Nullable="false" />
+    <Property Name="setuser" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="orderstatus_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="in_orderware">
+    <Key>
+      <PropertyRef Name="orderware_id" />
+    </Key>
+    <Property Name="ware_id" Type="Int32" Nullable="false" />
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="orderware_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ware">
+    <Key>
+      <PropertyRef Name="ware_id" />
+    </Key>
+    <Property Name="ware_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="barcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ware_photo">
+    <Key>
+      <PropertyRef Name="warephoto_id" />
+    </Key>
+    <Property Name="ware_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="filepath" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="warephoto_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rank" Type="Int64" />
+  </EntityType>
+  <EntityContainer Name="crmEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="companies" EntityType="Self.company" />
+    <EntitySet Name="in_order" EntityType="Self.in_order" />
+    <EntitySet Name="in_orderreceivelog" EntityType="Self.in_orderreceivelog" />
+    <EntitySet Name="in_orderreceivewarelog" EntityType="Self.in_orderreceivewarelog" />
+    <EntitySet Name="in_orderstatus" EntityType="Self.in_orderstatus" />
+    <EntitySet Name="in_orderware" EntityType="Self.in_orderware" />
+    <EntitySet Name="wares" EntityType="Self.ware" />
+    <EntitySet Name="ware_photo" EntityType="Self.ware_photo" />
+    <EntitySet Name="v_in_order" EntityType="crmModel.v_in_order" />
+  </EntityContainer>
+  <EntityType Name="v_in_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" />
+    <Property Name="senddata" Type="DateTime" />
+    <Property Name="receivedata" Type="DateTime" />
+    <Property Name="receiveuser" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="number" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="company_id" Type="Int32" />
+    <Property Name="company_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

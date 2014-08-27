@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="crmModelStoreContainer" CdmEntityContainer="crmEntities">
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="crmModel.company">
+        <MappingFragment StoreEntitySet="company">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="in_order">
+      <EntityTypeMapping TypeName="crmModel.in_order">
+        <MappingFragment StoreEntitySet="in_order">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="senddata" ColumnName="senddata" />
+          <ScalarProperty Name="receivedata" ColumnName="receivedata" />
+          <ScalarProperty Name="receiveuser" ColumnName="receiveuser" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="in_orderreceivelog">
+      <EntityTypeMapping TypeName="crmModel.in_orderreceivelog">
+        <MappingFragment StoreEntitySet="in_orderreceivelog">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="startdatetime" ColumnName="startdatetime" />
+          <ScalarProperty Name="finishdatetime" ColumnName="finishdatetime" />
+          <ScalarProperty Name="videopath" ColumnName="videopath" />
+          <ScalarProperty Name="userbarcode" ColumnName="userbarcode" />
+          <ScalarProperty Name="messages" ColumnName="messages" />
+          <ScalarProperty Name="orderreceivelog_id" ColumnName="orderreceivelog_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="in_orderreceivewarelog">
+      <EntityTypeMapping TypeName="crmModel.in_orderreceivewarelog">
+        <MappingFragment StoreEntitySet="in_orderreceivewarelog">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="setdatetime" ColumnName="setdatetime" />
+          <ScalarProperty Name="messages" ColumnName="messages" />
+          <ScalarProperty Name="orderreceivewarelog_id" ColumnName="orderreceivewarelog_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="in_orderstatus">
+      <EntityTypeMapping TypeName="crmModel.in_orderstatus">
+        <MappingFragment StoreEntitySet="in_orderstatus">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="setdate" ColumnName="setdate" />
+          <ScalarProperty Name="setuser" ColumnName="setuser" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="orderstatus_id" ColumnName="orderstatus_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="in_orderware">
+      <EntityTypeMapping TypeName="crmModel.in_orderware">
+        <MappingFragment StoreEntitySet="in_orderware">
+          <ScalarProperty Name="ware_id" ColumnName="ware_id" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="orderware_id" ColumnName="orderware_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wares">
+      <EntityTypeMapping TypeName="crmModel.ware">
+        <MappingFragment StoreEntitySet="ware">
+          <ScalarProperty Name="ware_id" ColumnName="ware_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ware_photo">
+      <EntityTypeMapping TypeName="crmModel.ware_photo">
+        <MappingFragment StoreEntitySet="ware_photo">
+          <ScalarProperty Name="ware_id" ColumnName="ware_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="filepath" ColumnName="filepath" />
+          <ScalarProperty Name="warephoto_id" ColumnName="warephoto_id" />
+          <ScalarProperty Name="rank" ColumnName="rank" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_in_order">
+      <EntityTypeMapping TypeName="crmModel.v_in_order">
+        <MappingFragment StoreEntitySet="v_in_order">
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="receiveuser" ColumnName="receiveuser" />
+          <ScalarProperty Name="receivedata" ColumnName="receivedata" />
+          <ScalarProperty Name="senddata" ColumnName="senddata" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,87 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        x:Class="crmApp.Forms.GridView.InOrderGrid"
+        Title="Заказы" Height="331" Width="800"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        dx:ThemeManager.ThemeName="Seven" >
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel DockPanel.Dock="Top" Height="Auto" Orientation="Horizontal" MinHeight="30" MaxHeight="35" Margin="5">
+
+            <Button x:Name="Wares" ToolTip="Состав заказа" Command="{Binding WaresOrderCmd}" Margin="10,2,1,2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="..\Images\settings.png"/>
+                    <Label  Content="Состав заказа" VerticalAlignment="Center" Margin="5,0" />
+                </StackPanel>
+            </Button>
+
+
+            <Button x:Name="Add" ToolTip="Новый заказ" Command="{Binding NewOrderCmd}" Margin="10,2,1,2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="..\Images\add.png"/>
+                    <Label  Content="Новый заказ" VerticalAlignment="Center" Margin="5,0" />
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Edit" ToolTip="Редактировать заказ" Command="{Binding EditOrderCmd}" Margin="2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="..\Images\edit.png"/>
+                    <Label  Content="Редактировать заказ" VerticalAlignment="Center" Margin="5,0" />
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Del" ToolTip="Удалить заказ" Command="{Binding DelOrderCmd}" Margin="2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="..\Images\delete.png"/>
+                    <Label  Content="Удалить заказ" VerticalAlignment="Center" Margin="5,0" />
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Refresh" ToolTip="Обновить" Command="{Binding RefreshOrderCmd}" Margin="10,2,1,2">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="..\Images\refresh.png"/>
+                    <Label  Content="Обновить" VerticalAlignment="Center" Margin="5,0" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        
+        <dxg:GridControl Grid.Row="1" x:Name="GridInOrder" 
+                         AutoPopulateColumns="False" 
+                         ItemsSource="{Binding StList, Mode=OneWay, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True }" 
+                         AllowLiveDataShaping="True"  
+                         DesignTimeShowSampleData="False"  
+                         AutoExpandAllGroups="True"
+                         dx:DXSerializer.SerializationID="GridInOrder" >
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Header="Код" FieldName="order_id" Width="40"  ReadOnly="True"/>
+                <dxg:GridColumn Header="Поставщик" FieldName="company_name" Width="150"  ReadOnly="True"/>
+                <dxg:GridColumn Header="№ заказа" FieldName="number" Width="60" ReadOnly="True"/>
+                <dxg:GridColumn Header="Отправлен" FieldName="senddata" Width="80"  ReadOnly="True"/>
+                <dxg:GridColumn Header="Получен" FieldName="receivedata" Width="80"  ReadOnly="True"/>
+                <dxg:GridColumn Header="Описание" FieldName="description" Width="200"  ReadOnly="True"/>
+                <dxg:GridColumn Header="Сотрудник" FieldName="receiveuser" Width="100"  ReadOnly="True"/>
+
+            </dxg:GridControl.Columns>
+
+                <dxg:GridControl.View>
+                <dxg:TableView ShowTotalSummary="False" AllowGrouping="True" MultiSelectMode="Row"
+					ShowGroupPanel="True" ShowIndicator="True" ShowSearchPanelFindButton="True" 
+					UseIndicatorForSelection="True" FadeSelectionOnLostFocus="False" 
+                    AllowEditing="False"
+                    FocusedRow="{Binding CurrentEntity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                   >
+
+                </dxg:TableView>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+    </Grid>
+</Window>
